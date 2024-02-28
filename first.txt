@@ -2,3 +2,4 @@ My name is Pruthika.
 i am from india.
 My age is 20.
 I am pursuing bcom 3rd year right now.
+I started SQL today.
