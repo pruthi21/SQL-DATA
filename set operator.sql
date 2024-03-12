@@ -1,0 +1,18 @@
+show databases;
+use pruthifs;
+create table student_data(id int primary key , student_name varchar(50) , department varchar(50), marks float, paid_fees bigint, attendance int);
+desc student_data;
+alter table student_data modify id int auto_increment;
+show tables;
+insert into student_data(student_name, department, marks, paid_fees, attendance) values('rashmi' ,'fullstack',82,90000,80),('shivam' ,'datascience',81,190000,90),('manasi' ,'fullstack',81,130000,79),('namita' ,'dse',72,80000,80),('saud' ,'datascience',82,70000,71),('sana' ,'fullstack',80,100000,81);
+select * from student_data;
+delete from student_data where id in (10,11,12,13,14);
+create table table1(id int primary key auto_increment,student_name varchar(50));
+insert into table1 (student_name)values ('shivam') ,('rashmi' ), ('parnika') ,('sana') ,('namita');
+select * from table2;
+create table table2(id int primary key auto_increment,student_name varchar(50));
+insert into table2 (student_name)values ('shivam') ,('rashmi' ), ('saud') ,('samiksha') ,('nirahi');
+select * from table1 union select * from table2;
+select count(id), department from student_data group by department;
+update student_data set marks='90.1' where id=7;
+select * from student_data;
