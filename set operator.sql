@@ -66,10 +66,25 @@ select curdate();
 select now();
 select last_day(curdate());
 select last_day('2024-02-14');
-select datediff('2024-06-21','2024-03-14');
+select monthname('2003-12-21');
 select date_format(curdate(), '%d-%c-%Y');
 select date_format(curdate(), '%d-%c-%y');
 select date_format(curdate(), '%D-%M-%Y');
 SELECT date_format(curdate(), '%W-%D-%y');
 select date_format(curdate(), '%a-%D-%b-%y');
 select date_format(curdate(), '%D-%b-%y');
+
+select * from employee;
+insert into employee values(1,'pru','hr',190000),(2, 'jazz','it',50000);
+ show databases;
+ create database Car_show_room;
+ use Car_show_room;
+ create table inventory(car_id int primary key, store_name varchar(50), price float, model varchar(200), year_of_manufacturing int, fuel_type varchar(100));
+ show databases;
+ insert into inventory values (101, 'TATAMOTORS',740000,'tata',1972,'petrol'),(102,'INFINITYCARS',550000,'bmw', 1922,'disel'),(
+ 103,'NAVNITAMOTORS', 400000,'kia', 1993, 'petrol'),(104, 'EXCELL_AUTOVISTA',505000,'maruti', 1955, 'disel'),(105, 'KSAUTOMOTIVE',300000,'rangerover', 1991,'petrol');
+select * from inventory;
+create table customers(customer_id int primary key, name varchar(20), address varchar(100), phone_number int, email varchar(200));
+desc customers;
+alter table customers modify phone_number bigint;
+

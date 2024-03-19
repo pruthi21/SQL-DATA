@@ -14,6 +14,20 @@ select * from order21 inner join user on user.uid= order21.uid;
 
 select * from order21 where uid is null;
 select * from order21 where uid is not null;
+select id, department, marks, student_name,
+case
+when marks>=35 and marks<=60 then 'Third class'
+when marks>=60 and marks<=80 then 'second class'
+when marks>=80 and marks<=100 then 'first class'
+end as result from student_data;
 
-
+create table clg(c_id int primary key, cname varchar(100), location varchar(40));
+create table student(s_id int primary key , sname varchar(100),s_age int , scity varchar(40),c_id int, foreign key(c_id) references clg(c_id));
+insert into clg values(1,'City premier','airoli'),(2,'gargi college', 'dadar'),(3,'ict college', 'vashi'),(4,'gargi college', 'dadar'),(5,'city premier college', 'airoli');
+insert into student values(1,'Shivam', 25, 'navi mumbai', 3),(2, 'Namita', 22, 'mumbai',2),(3,'Parnika',19, 'mumbai',1),(4,'Shruti',24, 'navi mumbai',3),(5,'Ayush',20, 'mumbai',3),(6,'Manasi',21,'mumbai',null),(7,'Swara',22,'navi mumbai', 5),(8,'Sachin',22,'mumbai',4),(9,'samiksha',23,'mumbai',2),(10,'kewal',22, 'mumbai',2);
+select * from student;
+select * from clg;
+select * from student inner join clg on student.c_id = clg.c_id;
+select student.sname, student.scity as student_address, clg.cname as college_name, clg.location as college_address from clg inner join student on student.c_id = clg.c_id;
+select * from student natural join clg;
 
