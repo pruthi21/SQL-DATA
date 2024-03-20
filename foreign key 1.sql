@@ -30,4 +30,26 @@ select * from clg;
 select * from student inner join clg on student.c_id = clg.c_id;
 select student.sname, student.scity as student_address, clg.cname as college_name, clg.location as college_address from clg inner join student on student.c_id = clg.c_id;
 select * from student natural join clg;
-
+show tables;
+use pruthifs;
+select * from clg left join student on student.c_id = clg.c_id;
+select * from student left join clg on student.c_id = clg.c_id;
+select * from clg right join student on student.c_id = clg.c_id;
+select * from student right join clg on student.c_id = clg.c_id;
+select * from clg left join student on student.sname = clg.cname;
+select * from clg right join student on student.s_id = clg.c_id;
+select * from clg right join student on student.c_id = clg.c_id
+union  
+select * from clg right join student on student.c_id = clg.c_id;
+select * from clg right join student on student.c_id = clg.c_id
+union  all
+select * from clg right join student on student.c_id = clg.c_id;
+select * from employee;
+show tables;
+create table emp(eid int primary key, ename varchar(20), designation varchar(20), mid int);
+desc emp;
+insert into emp values(1,'namita', 'dev', 3),(2,'parnika','hr',1),(3,'shivam','manager',2),(4,'pruthika','ceo',null),(5,'sanjana','it',0);
+select * from emp;
+select e.ename as employee_name,e.designation, m.ename as manager_name , m.designation from emp as e inner join emp as m on m.eid =e.mid;
+select e.ename as employee_name, e.designation, m.ename as manager_name, m.designation from emp e, emp m where e.mid =m.eid;
+update emp set mid = 3 where eid=4;

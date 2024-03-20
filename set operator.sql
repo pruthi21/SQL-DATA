@@ -87,4 +87,5 @@ select * from inventory;
 create table customers(customer_id int primary key, name varchar(20), address varchar(100), phone_number int, email varchar(200));
 desc customers;
 alter table customers modify phone_number bigint;
-
+select * from student_data;
+delete from student_data where id in (9,15,16,17,18,19,20,21,22,23,24,25,26);
