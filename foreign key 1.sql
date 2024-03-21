@@ -53,3 +53,4 @@ select * from emp;
 select e.ename as employee_name,e.designation, m.ename as manager_name , m.designation from emp as e inner join emp as m on m.eid =e.mid;
 select e.ename as employee_name, e.designation, m.ename as manager_name, m.designation from emp e, emp m where e.mid =m.eid;
 update emp set mid = 3 where eid=4;
+select student.sname, clg.cname from student cross join clg; 
