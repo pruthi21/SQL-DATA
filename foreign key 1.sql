@@ -26,7 +26,9 @@ create table student(s_id int primary key , sname varchar(100),s_age int , scity
 insert into clg values(1,'City premier','airoli'),(2,'gargi college', 'dadar'),(3,'ict college', 'vashi'),(4,'gargi college', 'dadar'),(5,'city premier college', 'airoli');
 insert into student values(1,'Shivam', 25, 'navi mumbai', 3),(2, 'Namita', 22, 'mumbai',2),(3,'Parnika',19, 'mumbai',1),(4,'Shruti',24, 'navi mumbai',3),(5,'Ayush',20, 'mumbai',3),(6,'Manasi',21,'mumbai',null),(7,'Swara',22,'navi mumbai', 5),(8,'Sachin',22,'mumbai',4),(9,'samiksha',23,'mumbai',2),(10,'kewal',22, 'mumbai',2);
 select * from student;
+
 select * from clg;
+
 select * from student inner join clg on student.c_id = clg.c_id;
 select student.sname, student.scity as student_address, clg.cname as college_name, clg.location as college_address from clg inner join student on student.c_id = clg.c_id;
 select * from student natural join clg;
@@ -54,3 +56,8 @@ select e.ename as employee_name,e.designation, m.ename as manager_name , m.desig
 select e.ename as employee_name, e.designation, m.ename as manager_name, m.designation from emp e, emp m where e.mid =m.eid;
 update emp set mid = 3 where eid=4;
 select student.sname, clg.cname from student cross join clg; 
+set sql_safe_updates =0;
+update student set sname = 'boss' where s_age =20;
+select * from student where s_age =(select max(s_age) from student where s_age < (select max(s_age) from student));
+select * from student where s_age =(select max(s_age) from student );
+select * from student where s_age in (25,22,23);
